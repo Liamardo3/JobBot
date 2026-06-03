@@ -1,0 +1,16 @@
+# Secret credentials - NEVER commit these
+.env
+
+# Build output
+bin/
+obj/
+publish/
+
+# Logs
+logs/
+
+# Seen jobs cache (personal data, not needed on GitHub)
+seen_jobs.json
+
+# macOS junk
+.DS_Store
