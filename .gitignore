@@ -1,4 +1,4 @@
-# Secret credentials - NEVER commit these
+# Supa Secret credentials
 .env
 
 # Build output
@@ -9,7 +9,7 @@ publish/
 # Logs
 logs/
 
-# Seen jobs cache (personal data, not needed on GitHub)
+# Seen jobs cache 
 seen_jobs.json
 
 # macOS junk
