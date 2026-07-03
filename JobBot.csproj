@@ -1,16 +1,35 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿
 
+<!--Start from here, trim the comments as need be  -->
+
+
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Build settings: what kind of output, which runtime, which language features. -->
   <PropertyGroup>
+    <!-- Produce a runnable executable (not just a library) — launchd runs this directly. -->
     <OutputType>Exe</OutputType>
+
+    <!-- Target .NET 10 — determines which runtime and APIs are available. -->
     <TargetFramework>net10.0</TargetFramework>
+
+    <!-- Auto-import common namespaces (System, System.Linq, etc.) so individual
+         files don't need a 'using' for each. Why Bot.cs can use Environment,
+         List<>, Exception without explicit using lines. -->
     <ImplicitUsings>enable</ImplicitUsings>
+
+    <!-- Nullable reference types: the compiler tracks what can be null and warns on
+         unsafe use. Why GetEnvironmentVariable is string? and why the ?? fallbacks
+         and null checks in Bot.cs exist. -->
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <!-- External NuGet package dependencies, each pinned to an exact version for
+       reproducible builds. -->
   <ItemGroup>
-    <PackageReference Include="Discord.Net" Version="3.19.1" />
-    <PackageReference Include="dotenv.net" Version="4.0.2" />
-    <PackageReference Include="Microsoft.Playwright" Version="1.60.0" />
+    <PackageReference Include="Discord.Net" Version="3.19.1" />        <!-- Discord API client, events, channels -->
+    <PackageReference Include="dotenv.net" Version="4.0.2" />          <!-- .env loading (DotEnv.Load) -->
+    <PackageReference Include="Microsoft.Playwright" Version="1.60.0" /> <!-- browser automation for the scraper -->
   </ItemGroup>
 
 </Project>
