@@ -2,6 +2,25 @@
 
 Console.WriteLine("JobBot starting...\n");
 
+// Wait for network to be available before scraping
+Console.WriteLine("Waiting for network...");
+while (true)
+{
+    try
+    {
+        using var http = new HttpClient();
+        http.Timeout = TimeSpan.FromSeconds(5);
+        await http.GetAsync("https://www.linkedin.com");
+        Console.WriteLine("Network ready.\n");
+        break;
+    }
+    catch
+    {
+        Console.WriteLine("Network not ready, retrying in 30s...");
+        await Task.Delay(30000);
+    }
+}
+
 var seenJobs = new SeenJobs();
 Console.WriteLine($"Seen jobs on record: {seenJobs.Count}");
 
