@@ -32,7 +32,7 @@ Console.WriteLine($"Running {searches.Length} searches...");
         // launch a Chromium browser with some options, store it in browser
         await using var browser = await playwright.Chromium.LaunchAsync(new()
         {
-            Headless = false
+            Headless = true
         });
 
         //Create a new browser context
